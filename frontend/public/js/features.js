@@ -50,7 +50,7 @@ const terminalOutput = document.getElementById('terminalOutput');
 const CLI_COMMANDS = {
     help: () => `Available commands: <span class="t-hl">about</span>, <span class="t-hl">skills</span>, <span class="t-hl">contact</span>, <span class="t-hl">resume</span>, <span class="t-hl">projects</span>, <span class="t-hl">faq</span>, <span class="t-hl">clear</span>, <span class="t-hl">hello</span>`,
 
-    about: () => `<span class="t-hl">Aravindhan S</span> — Java Full Stack Developer &amp; QA Automation Engineer<br>📍 Chennai, India · B.E. CSE, 2025 · CGPA: 7.4<br>🟢 Available immediately for new opportunities`,
+    about: () => `<span class="t-hl">Aravindhan S</span> — Java Full Stack Developer &amp; QA Automation Engineer<br>📍 Chennai, India · B.E. CSE, 2025<br>🟢 Available immediately for new opportunities`,
 
     skills: () => `Languages: <span class="t-hl">Java, JavaScript, SQL</span><br>Backend: <span class="t-hl">Spring Boot, Spring MVC, REST APIs</span><br>Frontend: <span class="t-hl">HTML5, CSS3, JavaScript</span><br>QA: <span class="t-hl">Playwright, TestNG, Maven, POM</span><br>Tools: <span class="t-hl">Git, Postman, IntelliJ IDEA</span>`,
 

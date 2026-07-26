@@ -178,6 +178,13 @@
 
     // Initialize canvas
     function initCanvas() {
+        // Disable on mobile/touch devices
+        if (window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0) {
+            var canvas = document.getElementById('canvas');
+            if (canvas) canvas.style.display = 'none';
+            return;
+        }
+
         var canvas = document.getElementById('canvas');
         if (!canvas) {
             console.warn('Canvas element not found');
