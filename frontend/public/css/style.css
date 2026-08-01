@@ -10,22 +10,22 @@
     /* Text */
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
-    --text-accent: #38bdf8;
+    --text-accent: #f43f5e;
 
     /* Ambient Lighting */
-    --ambient-glow: rgba(56, 189, 248, 0.15);
+    --ambient-glow: rgba(244, 63, 94, 0.15);
 
     /* Borders & Glass */
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-border-hover: rgba(139, 92, 246, 0.6);
-    /* Vibrant purple hover */
+    --glass-border-hover: rgba(244, 63, 94, 0.6);
+    /* Vibrant red/rose hover */
     --glass-highlight: rgba(255, 255, 255, 0.1);
 
     /* Gradients */
-    --gradient-text: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #e879f9 100%);
+    --gradient-text: linear-gradient(135deg, #f43f5e 0%, #f97316 50%, #fcd34d 100%);
     --gradient-bg-1: #0f172a;
-    --gradient-bg-2: #2e1065;
-    --gradient-bg-3: #172554;
+    --gradient-bg-2: #4c0519;
+    --gradient-bg-3: #431407;
     --gradient-bg-4: #020617;
 
     /* Fonts */
@@ -66,19 +66,13 @@ html {
 }
 
 body {
-    background-color: var(--bg-base);
+    background-color: transparent;
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    /* Vibrant animated gradient background */
-    background: linear-gradient(-45deg, var(--gradient-bg-1), var(--gradient-bg-2), var(--gradient-bg-3), var(--gradient-bg-4));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    background-attachment: fixed;
 }
 
 @keyframes gradientBG {
@@ -165,15 +159,15 @@ a {
 
 /* ==================== Dynamic Panels (Glassmorphism) ==================== */
 .glass-panel {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(15, 23, 42, 0.15); /* More transparent */
+    backdrop-filter: blur(8px); /* Reduced blur to see background better */
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 /* Glow Tracking Border */
@@ -212,12 +206,12 @@ a {
 }
 
 .glass-panel-nav {
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: rgba(15, 23, 42, 0.1); /* More transparent */
+    backdrop-filter: blur(10px); /* Reduced blur */
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 100px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 .tilt-card {
@@ -463,10 +457,17 @@ a {
 
 .hero-content {
     max-width: 900px;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .hero-badge {
@@ -1122,14 +1123,14 @@ body.light-mode {
     --bg-surface-elevated: rgba(230, 235, 245, 0.9);
     --text-primary: #0f172a;
     --text-secondary: #475569;
-    --text-accent: #0284c7;
+    --text-accent: #e11d48;
     --glass-border: rgba(0, 0, 0, 0.1);
-    --glass-border-hover: rgba(99, 102, 241, 0.5);
+    --glass-border-hover: rgba(244, 63, 94, 0.5);
     --glass-highlight: rgba(0, 0, 0, 0.05);
-    --ambient-glow: rgba(2, 132, 199, 0.1);
-    --gradient-bg-1: #dbeafe;
-    --gradient-bg-2: #ede9fe;
-    --gradient-bg-3: #e0f2fe;
+    --ambient-glow: rgba(225, 29, 72, 0.1);
+    --gradient-bg-1: #ffe4e6;
+    --gradient-bg-2: #ffedd5;
+    --gradient-bg-3: #fef3c7;
     --gradient-bg-4: #f0fdf4;
 }
 
@@ -1487,17 +1488,37 @@ body.light-mode .project-badge {
    Feature CSS — Recruiter-Attracting Features
    ============================================= */
 
-/* Hero Container: two columns on desktop */
+/* Hero Container: Push content to edges to clear the center portrait */
 .hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    max-width: 1600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+}
+
+.hero-container .hero-content {
+    flex: 0 1 50%;
+    max-width: 650px;
+}
+
+.hero-container .terminal-widget {
+    flex: 0 1 450px;
 }
 
 @media(max-width: 900px) {
     .hero-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .hero-container .hero-content {
+        align-items: center;
+        text-align: center;
+    }
+    .hero-actions {
+        justify-content: center;
     }
 }
 

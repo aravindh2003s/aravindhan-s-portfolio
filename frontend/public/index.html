@@ -36,6 +36,9 @@
 <div id="scrollProgress" class="scroll-progress-bar"></div>
 
 <body class="spatial-theme">
+    <!-- Scroll Animation Background -->
+    <canvas id="scroll-animation-bg" style="position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); min-width: 100vw; min-height: 100vh; width: auto; height: auto; z-index: -2; object-fit: cover; opacity: 1; pointer-events: none; filter: contrast(1.05) saturate(1.1);"></canvas>
+
     <!-- Cinematic Preloader -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
@@ -924,6 +927,9 @@
 
     <!-- Features JavaScript -->
     <script src="./js/features.js"></script>
+
+    <!-- Scroll Animation Script -->
+    <script src="./js/scroll-animation.js"></script>
 </body>
 
 
